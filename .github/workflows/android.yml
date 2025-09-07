@@ -7,9 +7,9 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
+  build-with-gradle:
+    name: Build using system Gradle
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout source
         uses: actions/checkout@v4
@@ -23,11 +23,42 @@ jobs:
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v3
 
-      - name: Build Debug APK
+      - name: Build Debug APK (Gradle direct)
         run: gradle assembleDebug --stacktrace
 
-      - name: Upload APK artifact
+      - name: Upload APK artifact (Gradle direct)
         uses: actions/upload-artifact@v4
         with:
-          name: debug-apk
+          name: debug-apk-gradle
+          path: app/build/outputs/apk/debug/*.apk
+
+  build-with-wrapper:
+    name: Build using generated Gradle Wrapper
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+
+      - name: Install Gradle CLI
+        run: sudo apt-get update && sudo apt-get install -y gradle
+
+      - name: Generate Gradle wrapper
+        run: gradle wrapper --gradle-version 8.4
+
+      - name: Make gradlew executable
+        run: chmod +x gradlew
+
+      - name: Build Debug APK (Gradle Wrapper)
+        run: ./gradlew assembleDebug --stacktrace
+
+      - name: Upload APK artifact (Gradle Wrapper)
+        uses: actions/upload-artifact@v4
+        with:
+          name: debug-apk-wrapper
           path: app/build/outputs/apk/debug/*.apk
