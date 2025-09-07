@@ -20,18 +20,11 @@ jobs:
           distribution: temurin
           java-version: 17
 
-      - name: Generate Gradle wrapper if missing
-        run: |
-          if [ ! -f gradle/wrapper/gradle-wrapper.jar ]; then
-            echo "⚠️ gradle-wrapper.jar missing, generating..."
-            gradle wrapper --gradle-version 8.4
-          fi
-
-      - name: Make gradlew executable
-        run: chmod +x gradlew
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v3
 
       - name: Build Debug APK
-        run: ./gradlew assembleDebug --stacktrace
+        run: gradle assembleDebug --stacktrace
 
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
