@@ -23,6 +23,9 @@ jobs:
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v3
 
+      - name: Run unit tests (Gradle direct)
+        run: gradle test --stacktrace
+
       - name: Build Debug APK (Gradle direct)
         run: gradle assembleDebug --stacktrace
 
@@ -53,6 +56,9 @@ jobs:
 
       - name: Make gradlew executable
         run: chmod +x gradlew
+
+      - name: Run unit tests (Gradle Wrapper)
+        run: ./gradlew test --stacktrace
 
       - name: Build Debug APK (Gradle Wrapper)
         run: ./gradlew assembleDebug --stacktrace
