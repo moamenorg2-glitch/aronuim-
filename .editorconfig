@@ -1,0 +1,79 @@
+# EditorConfig is awesome: https://EditorConfig.org
+
+# top-most EditorConfig file
+root = true
+
+# All files
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# Kotlin files
+[*.{kt,kts}]
+indent_style = space
+indent_size = 4
+max_line_length = 120
+
+# Java files
+[*.java]
+indent_style = space
+indent_size = 4
+max_line_length = 120
+
+# XML files
+[*.{xml,axml}]
+indent_style = space
+indent_size = 4
+
+# Gradle files
+[*.{gradle,gradle.kts}]
+indent_style = space
+indent_size = 4
+
+# Properties files
+[*.properties]
+indent_style = space
+indent_size = 4
+
+# Markdown files
+[*.md]
+indent_style = space
+indent_size = 2
+max_line_length = 80
+
+# YAML files
+[*.{yml,yaml}]
+indent_style = space
+indent_size = 2
+
+# JSON files
+[*.json]
+indent_style = space
+indent_size = 2
+
+# Shell scripts
+[*.{sh,bash}]
+indent_style = space
+indent_size = 2
+
+# Batch files
+[*.{bat,cmd}]
+indent_style = space
+indent_size = 2
+
+# PowerShell files
+[*.ps1]
+indent_style = space
+indent_size = 4
+
+# Docker files
+[Dockerfile*]
+indent_style = space
+indent_size = 2
+
+# Git files
+[.git*]
+indent_style = space
+indent_size = 2

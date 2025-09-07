@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    
+    <!-- Primary Colors -->
+    <color name="primary">#FF2E7D32</color>
+    <color name="primary_dark">#FF1B5E20</color>
+    <color name="primary_light">#FF4CAF50</color>
+    
+    <!-- Secondary Colors -->
+    <color name="secondary">#FF1976D2</color>
+    <color name="secondary_dark">#FF0D47A1</color>
+    <color name="secondary_light">#FF42A5F5</color>
+    
+    <!-- Accent Colors -->
+    <color name="accent">#FFFF9800</color>
+    <color name="accent_dark">#FFF57C00</color>
+    <color name="accent_light">#FFFFB74D</color>
+    
+    <!-- Status Colors -->
+    <color name="success">#FF4CAF50</color>
+    <color name="warning">#FFFF9800</color>
+    <color name="error">#FFF44336</color>
+    <color name="info">#FF2196F3</color>
+    
+    <!-- Background Colors -->
+    <color name="background">#FFF5F5F5</color>
+    <color name="surface">#FFFFFFFF</color>
+    <color name="surface_variant">#FFF3F3F3</color>
+    
+    <!-- Text Colors -->
+    <color name="text_primary">#DE000000</color>
+    <color name="text_secondary">#99000000</color>
+    <color name="text_hint">#61000000</color>
+    <color name="text_disabled">#38000000</color>
+    
+    <!-- Border Colors -->
+    <color name="border">#FFE0E0E0</color>
+    <color name="border_light">#FFF0F0F0</color>
+    
+    <!-- Order Status Colors -->
+    <color name="status_pending">#FFFF9800</color>
+    <color name="status_preparing">#FF2196F3</color>
+    <color name="status_ready">#FF4CAF50</color>
+    <color name="status_completed">#FF2E7D32</color>
+    <color name="status_cancelled">#FFF44336</color>
+</resources>

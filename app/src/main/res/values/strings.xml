@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Aronium POS</string>
+    
+    <!-- Navigation -->
+    <string name="nav_dashboard">لوحة التحكم</string>
+    <string name="nav_orders">الطلبات</string>
+    <string name="nav_products">المنتجات</string>
+    <string name="nav_recipes">وصفات الطعام</string>
+    <string name="nav_customers">العملاء</string>
+    <string name="nav_reports">التقارير</string>
+    <string name="nav_settings">الإعدادات</string>
+    
+    <!-- Dashboard -->
+    <string name="dashboard_title">لوحة التحكم</string>
+    <string name="today_sales">مبيعات اليوم</string>
+    <string name="total_orders">إجمالي الطلبات</string>
+    <string name="active_orders">الطلبات النشطة</string>
+    <string name="revenue">الإيرادات</string>
+    
+    <!-- Orders -->
+    <string name="orders_title">الطلبات</string>
+    <string name="new_order">طلب جديد</string>
+    <string name="order_number">رقم الطلب</string>
+    <string name="order_status">حالة الطلب</string>
+    <string name="order_total">المجموع</string>
+    <string name="order_date">التاريخ</string>
+    <string name="pending">معلق</string>
+    <string name="preparing">قيد التحضير</string>
+    <string name="ready">جاهز</string>
+    <string name="completed">مكتمل</string>
+    <string name="cancelled">ملغي</string>
+    
+    <!-- Products -->
+    <string name="products_title">المنتجات</string>
+    <string name="add_product">إضافة منتج</string>
+    <string name="product_name">اسم المنتج</string>
+    <string name="product_price">السعر</string>
+    <string name="product_category">الفئة</string>
+    <string name="product_description">الوصف</string>
+    <string name="product_image">صورة المنتج</string>
+    <string name="in_stock">متوفر</string>
+    <string name="out_of_stock">غير متوفر</string>
+    
+    <!-- Recipes -->
+    <string name="recipes_title">وصفات الطعام</string>
+    <string name="add_recipe">إضافة وصفة</string>
+    <string name="recipe_name">اسم الوصفة</string>
+    <string name="recipe_ingredients">المكونات</string>
+    <string name="recipe_instructions">طريقة التحضير</string>
+    <string name="recipe_prep_time">وقت التحضير</string>
+    <string name="recipe_cook_time">وقت الطهي</string>
+    <string name="recipe_servings">عدد الحصص</string>
+    <string name="add_ingredient">إضافة مكون</string>
+    <string name="ingredient_name">اسم المكون</string>
+    <string name="ingredient_quantity">الكمية</string>
+    <string name="ingredient_unit">الوحدة</string>
+    
+    <!-- Customers -->
+    <string name="customers_title">العملاء</string>
+    <string name="add_customer">إضافة عميل</string>
+    <string name="customer_name">اسم العميل</string>
+    <string name="customer_phone">رقم الهاتف</string>
+    <string name="customer_email">البريد الإلكتروني</string>
+    <string name="customer_address">العنوان</string>
+    
+    <!-- Reports -->
+    <string name="reports_title">التقارير</string>
+    <string name="sales_report">تقرير المبيعات</string>
+    <string name="products_report">تقرير المنتجات</string>
+    <string name="customers_report">تقرير العملاء</string>
+    <string name="daily_report">التقرير اليومي</string>
+    <string name="weekly_report">التقرير الأسبوعي</string>
+    <string name="monthly_report">التقرير الشهري</string>
+    
+    <!-- Settings -->
+    <string name="settings_title">الإعدادات</string>
+    <string name="general_settings">الإعدادات العامة</string>
+    <string name="printer_settings">إعدادات الطابعة</string>
+    <string name="tax_settings">إعدادات الضرائب</string>
+    <string name="currency_settings">إعدادات العملة</string>
+    <string name="language_settings">إعدادات اللغة</string>
+    
+    <!-- Common -->
+    <string name="save">حفظ</string>
+    <string name="cancel">إلغاء</string>
+    <string name="delete">حذف</string>
+    <string name="edit">تعديل</string>
+    <string name="add">إضافة</string>
+    <string name="search">بحث</string>
+    <string name="filter">تصفية</string>
+    <string name="refresh">تحديث</string>
+    <string name="loading">جاري التحميل...</string>
+    <string name="error">خطأ</string>
+    <string name="success">نجح</string>
+    <string name="confirm">تأكيد</string>
+    <string name="yes">نعم</string>
+    <string name="no">لا</string>
+    <string name="ok">موافق</string>
+    
+    <!-- Units -->
+    <string name="unit_piece">قطعة</string>
+    <string name="unit_kg">كيلوغرام</string>
+    <string name="unit_gram">غرام</string>
+    <string name="unit_liter">لتر</string>
+    <string name="unit_ml">مليلتر</string>
+    <string name="unit_cup">كوب</string>
+    <string name="unit_tbsp">ملعقة كبيرة</string>
+    <string name="unit_tsp">ملعقة صغيرة</string>
+    
+    <!-- Categories -->
+    <string name="category_appetizers">المقبلات</string>
+    <string name="category_main_dishes">الأطباق الرئيسية</string>
+    <string name="category_desserts">الحلويات</string>
+    <string name="category_beverages">المشروبات</string>
+    <string name="category_salads">السلطات</string>
+    <string name="category_soups">الشوربات</string>
+</resources>

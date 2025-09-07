@@ -1,0 +1,77 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# Custom for Visual Studio
+*.cs     diff=csharp
+*.sln    merge=union
+*.csproj merge=union
+*.vbproj merge=union
+*.fsproj merge=union
+*.dbproj merge=union
+
+# Standard to msysgit
+*.doc	 diff=astextplain
+*.DOC	 diff=astextplain
+*.docx diff=astextplain
+*.DOCX diff=astextplain
+*.dot  diff=astextplain
+*.DOT  diff=astextplain
+*.pdf  diff=astextplain
+*.PDF	 diff=astextplain
+*.rtf	 diff=astextplain
+*.RTF	 diff=astextplain
+
+# Image files
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.gif   binary
+*.ico   binary
+*.svg   binary
+
+# Audio files
+*.mp3   binary
+*.wav   binary
+*.ogg   binary
+
+# Video files
+*.mp4   binary
+*.avi   binary
+*.mov   binary
+*.wmv   binary
+
+# Archive files
+*.zip   binary
+*.rar   binary
+*.7z    binary
+*.tar   binary
+*.gz    binary
+
+# Android specific
+*.apk   binary
+*.aab   binary
+*.dex   binary
+*.so    binary
+
+# Gradle files
+*.gradle text
+gradle-wrapper.jar binary
+
+# Documentation
+*.md    text
+*.txt   text
+*.json  text
+*.xml   text
+*.yml   text
+*.yaml  text
+
+# Source code
+*.kt    text
+*.java  text
+*.xml   text
+*.properties text
+
+# Config files
+*.conf  text
+*.config text
+*.ini   text
