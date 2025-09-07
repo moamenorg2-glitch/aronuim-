@@ -7,42 +7,31 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.aronium.pos.data.model.Customer
-import com.aronium.pos.data.repository.CustomerRepository
+import com.aronium.pos.ui.viewmodel.CustomerViewModel
 import java.text.SimpleDateFormat
 import java.util.*
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CustomersScreen(
-    customerRepository: CustomerRepository = hiltViewModel()
+    viewModel: CustomerViewModel = hiltViewModel()
 ) {
-    var customers by remember { mutableStateOf<List<Customer>>(emptyList()) }
+    val customerState by viewModel.customerState.collectAsState()
     var searchQuery by remember { mutableStateOf("") }
     var showAddCustomerDialog by remember { mutableStateOf(false) }
-    var isLoading by remember { mutableStateOf(true) }
-
-    LaunchedEffect(Unit) {
-        customerRepository.getAllCustomers().collect { customerList ->
-            customers = customerList
-            isLoading = false
-        }
-    }
 
     LaunchedEffect(searchQuery) {
         if (searchQuery.isBlank()) {
-            customerRepository.getAllCustomers().collect { customerList ->
-                customers = customerList
-            }
+            viewModel.loadCustomers()
         } else {
-            customerRepository.searchCustomers(searchQuery).collect { customerList ->
-                customers = customerList
-            }
+            viewModel.searchCustomers(searchQuery)
         }
     }
 
@@ -83,7 +72,7 @@ fun CustomersScreen(
         Spacer(modifier = Modifier.height(16.dp))
 
         // Customers List
-        if (isLoading) {
+        if (customerState.isLoading) {
             Box(
                 modifier = Modifier.fillMaxSize(),
                 contentAlignment = Alignment.Center
@@ -94,12 +83,12 @@ fun CustomersScreen(
             LazyColumn(
                 verticalArrangement = Arrangement.spacedBy(8.dp)
             ) {
-                items(customers) { customer ->
+                items(customerState.customers) { customer ->
                     CustomerCard(
                         customer = customer,
                         onEdit = { /* Navigate to edit customer */ },
                         onDelete = { 
-                            // Delete customer
+                            viewModel.deleteCustomer(customer)
                         }
                     )
                 }
@@ -112,7 +101,7 @@ fun CustomersScreen(
         AddCustomerDialog(
             onDismiss = { showAddCustomerDialog = false },
             onAddCustomer = { customer ->
-                // Add customer
+                viewModel.addCustomer(customer)
                 showAddCustomerDialog = false
             }
         )

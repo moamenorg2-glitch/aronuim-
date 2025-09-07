@@ -47,35 +47,37 @@ fun DashboardScreen(
                 CircularProgressIndicator()
             }
         } else {
-            // Stats Cards
-            LazyRow(
-                horizontalArrangement = Arrangement.spacedBy(16.dp),
+            // Stats Cards - Grid layout for portrait mode
+            Column(
+                verticalArrangement = Arrangement.spacedBy(12.dp),
                 modifier = Modifier.fillMaxWidth()
             ) {
-                item {
+                Row(
+                    horizontalArrangement = Arrangement.spacedBy(12.dp),
+                    modifier = Modifier.fillMaxWidth()
+                ) {
                     StatCard(
                         title = "مبيعات اليوم",
                         value = NumberFormat.getCurrencyInstance(Locale("ar", "SA")).format(dashboardState.todayRevenue),
                         icon = Icons.Default.AttachMoney,
-                        color = MaterialTheme.colorScheme.primary
+                        color = MaterialTheme.colorScheme.primary,
+                        modifier = Modifier.weight(1f)
                     )
-                }
-                item {
                     StatCard(
                         title = "إجمالي الطلبات",
                         value = dashboardState.totalOrders.toString(),
                         icon = Icons.Default.ShoppingCart,
-                        color = MaterialTheme.colorScheme.secondary
+                        color = MaterialTheme.colorScheme.secondary,
+                        modifier = Modifier.weight(1f)
                     )
                 }
-                item {
-                    StatCard(
-                        title = "الطلبات النشطة",
-                        value = dashboardState.activeOrders.toString(),
-                        icon = Icons.Default.Timer,
-                        color = MaterialTheme.colorScheme.tertiary
-                    )
-                }
+                StatCard(
+                    title = "الطلبات النشطة",
+                    value = dashboardState.activeOrders.toString(),
+                    icon = Icons.Default.Timer,
+                    color = MaterialTheme.colorScheme.tertiary,
+                    modifier = Modifier.fillMaxWidth()
+                )
             }
 
             Spacer(modifier = Modifier.height(24.dp))
@@ -88,10 +90,11 @@ fun DashboardScreen(
                 modifier = Modifier.padding(bottom = 16.dp)
             )
 
+            val quickActions = getQuickActions()
             LazyColumn(
                 verticalArrangement = Arrangement.spacedBy(12.dp)
             ) {
-                items(getQuickActions()) { action ->
+                items(quickActions) { action ->
                     QuickActionCard(
                         title = action.title,
                         description = action.description,
@@ -115,13 +118,16 @@ fun StatCard(
     title: String,
     value: String,
     icon: ImageVector,
-    color: Color
+    color: Color,
+    modifier: Modifier = Modifier
 ) {
     Card(
-        modifier = Modifier
-            .width(200.dp)
+        modifier = modifier
             .height(120.dp),
-        elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
+        elevation = CardDefaults.cardElevation(defaultElevation = 6.dp),
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.surface
+        )
     ) {
         Column(
             modifier = Modifier
@@ -159,6 +165,7 @@ fun StatCard(
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun QuickActionCard(
     title: String,
@@ -169,7 +176,10 @@ fun QuickActionCard(
     Card(
         modifier = Modifier.fillMaxWidth(),
         onClick = onClick,
-        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
+        elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.surface
+        )
     ) {
         Row(
             modifier = Modifier
@@ -217,31 +227,44 @@ data class QuickAction(
     val onClick: () -> Unit
 )
 
-fun getQuickActions(): List<QuickAction> {
+@Composable
+fun getQuickActions(onNavigate: (String) -> Unit = {}): List<QuickAction> {
     return listOf(
         QuickAction(
             title = "طلب جديد",
             description = "إنشاء طلب جديد للعميل",
             icon = Icons.Default.Add,
-            onClick = { /* Navigate to new order */ }
+            onClick = { onNavigate("orders") }
         ),
         QuickAction(
             title = "إدارة المنتجات",
             description = "إضافة أو تعديل المنتجات",
             icon = Icons.Default.Inventory,
-            onClick = { /* Navigate to products */ }
+            onClick = { onNavigate("products") }
         ),
         QuickAction(
             title = "وصفات الطعام",
             description = "إدارة وصفات الطعام والمكونات",
             icon = Icons.Default.MenuBook,
-            onClick = { /* Navigate to recipes */ }
+            onClick = { onNavigate("recipes") }
         ),
         QuickAction(
             title = "التقارير",
             description = "عرض تقارير المبيعات والأداء",
             icon = Icons.Default.Analytics,
-            onClick = { /* Navigate to reports */ }
+            onClick = { onNavigate("reports") }
+        ),
+        QuickAction(
+            title = "العملاء",
+            description = "إدارة قاعدة بيانات العملاء",
+            icon = Icons.Default.People,
+            onClick = { onNavigate("customers") }
+        ),
+        QuickAction(
+            title = "الإعدادات",
+            description = "إعدادات التطبيق والنظام",
+            icon = Icons.Default.Settings,
+            onClick = { onNavigate("settings") }
         )
     )
 }

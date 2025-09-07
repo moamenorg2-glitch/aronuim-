@@ -18,28 +18,66 @@ import androidx.compose.ui.graphics.Color
 
 private val DarkColorScheme = darkColorScheme(
     primary = PrimaryLight,
-    secondary = SecondaryLight,
-    tertiary = AccentLight,
-    background = Color(0xFF121212),
-    surface = Color(0xFF1E1E1E),
     onPrimary = Color.White,
+    primaryContainer = PrimaryDark,
+    onPrimaryContainer = Color.White,
+    
+    secondary = SecondaryLight,
     onSecondary = Color.White,
+    secondaryContainer = SecondaryDark,
+    onSecondaryContainer = Color.White,
+    
+    tertiary = AccentLight,
     onTertiary = Color.White,
+    tertiaryContainer = AccentDark,
+    onTertiaryContainer = Color.White,
+    
+    background = Color(0xFF121212),
     onBackground = Color.White,
+    surface = Color(0xFF1E1E1E),
     onSurface = Color.White,
+    surfaceVariant = Color(0xFF2C2C2C),
+    onSurfaceVariant = Color(0xFFE0E0E0),
+    
+    error = Error,
+    onError = Color.White,
+    errorContainer = Color(0xFF93000A),
+    onErrorContainer = Color(0xFFFFDAD6),
+    
+    outline = Color(0xFF938F99),
+    outlineVariant = Color(0xFF49454F)
 )
 
 private val LightColorScheme = lightColorScheme(
     primary = Primary,
-    secondary = Secondary,
-    tertiary = Accent,
-    background = Background,
-    surface = Surface,
     onPrimary = Color.White,
+    primaryContainer = Color(0xFFE3F2FD),
+    onPrimaryContainer = PrimaryDark,
+    
+    secondary = Secondary,
     onSecondary = Color.White,
+    secondaryContainer = Color(0xFFE0F2F1),
+    onSecondaryContainer = SecondaryDark,
+    
+    tertiary = Accent,
     onTertiary = Color.White,
+    tertiaryContainer = Color(0xFFFFE0B2),
+    onTertiaryContainer = AccentDark,
+    
+    background = Background,
     onBackground = TextPrimary,
+    surface = Surface,
     onSurface = TextPrimary,
+    surfaceVariant = SurfaceVariant,
+    onSurfaceVariant = TextSecondary,
+    
+    error = Error,
+    onError = Color.White,
+    errorContainer = Color(0xFFFFDAD6),
+    onErrorContainer = Color(0xFF410002),
+    
+    outline = Border,
+    outlineVariant = BorderLight
 )
 
 @Composable
