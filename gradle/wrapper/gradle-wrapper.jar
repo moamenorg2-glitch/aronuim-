@@ -1,0 +1,6 @@
+# Gradle Wrapper JAR
+# This is a placeholder file for the Gradle wrapper JAR
+# The actual JAR file will be generated when you first run gradle wrapper
+# 
+# To generate the actual wrapper, run:
+# gradle wrapper --gradle-version 8.4
